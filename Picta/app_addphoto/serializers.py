@@ -5,4 +5,4 @@ class ImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Imagen
         fields = ['id', 'creator', 'title', 'image_file', 'is_public']
-        read_only_fields = ['creator']
+        read_only_fields = ['id', 'creator']
