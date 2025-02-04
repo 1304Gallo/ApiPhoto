@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-(!ay1aotasp+8h&_g6)mdp0$*@xru1$7dzbh=^6ibew%00ss$p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ORIGINS_ALLOW_ALL = True
 
 
 REST_FRAMEWORK = {
@@ -57,6 +57,11 @@ REST_FRAMEWORK = {
         'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
         'rest_framework.authentication.SessionAuthentication',
     ]
+
+    #'DEFAULT_PERMISSION_CLASSES': [
+
+        #'rest_framework.permissions.IsAuthenticated',
+    #]
 }
 
 OAUTH2_PROVIDER = {
@@ -65,6 +70,8 @@ OAUTH2_PROVIDER = {
         'write': 'Write scope',
     }
 }
+
+LOGIN_URL = '/admin/loging/'
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
